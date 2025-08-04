@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>REGISTRATION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="logo.png">
+  
+  <style>
+    body {
+      font-family: arial, sans-serif;
+      background-color: #7c589b;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+      margin: 0;
+      align-items: center;
+    }
+
+    .register-box {
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1); 
+      display: block;
+      margin: 8px;
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+      background: white;
+    }
+
+    h1 {
+      color: blue;
+      font-family: arial, sans-serif;
+    }
+
+    input {
+      display: block;
+      margin: 20px;
+      width: 80%;
+      padding: 10px;
+    }
+
+    .register-box select {
+      width: 50%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: blue;
+      color: white;
+      width: 90%;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .form-group {
+      text-align: left;
+    }
+
+    label {
+      margin-left: 20px;
+    }
+
+    .paragraph {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="register-box">
+    <h1>REGISTER NOW</h1>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm_password" placeholder="Confirm password" required>
+      </div>
+
+      <select name="gender" class="gender" required>
+        <option value="">Select gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <select name="country" class="country" required>
+        <option value="">Select country</option>
+        <option value="Tanzania">Tanzania</option>
+        <option value="Kenya">Kenya</option>
+        <option value="Uganda">Uganda</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p class="paragraph">Already have an account? <a href="login.html" target="_blank">Sign in</a></p>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Zuia form isitumie default behavior
+
+      // Chukua values kutoka kwenye inputs
+      const firstname = document.getElementById("firstname").value.trim();
+      const lastname = document.getElementById("lastname").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+      const gender = document.querySelector(".gender").value;
+      const country = document.querySelector(".country").value;
+
+      // Hakikisha password zinafanana
+      if (password !== confirm) {
+        alert("Passwords hazifanani. Tafadhali hakiki tena.");
+        return;
+      }
+
+      // Hifadhi taarifa kwenye localStorage (basic example)
+      const userData = {
+        firstname,
+        lastname,
+        username,
+        email,
+        phone,
+        password,
+        gender,
+        country
+      };
+
+      localStorage.setItem("registeredUser", JSON.stringify(userData));
+
+      // Toa ujumbe na mpeleke kwenye login.html
+      alert("Umesajiliwa kikamilifu! Tafadhali ingia sasa.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
