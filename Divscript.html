@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DIV ND SECTION</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            background-color: black;
+        }
+        header {
+            text-align: center;
+            background-color: rgb(54, 171, 68);
+            padding: 10px;
+            color: white;
+        }
+        nav a {
+            color: black;
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 15px;
+        }
+        #welcomeMessage {
+            background-color: #111;
+            padding: 10px;
+            color: lightgreen;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .box {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: aqua;
+            box-shadow: 15px red;
+        }
+        .box label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(23, 175, 63);
+            color: white;
+            font-size: 1em;
+        }
+        .box h2 {
+            margin-bottom: 15px;
+            color: black;
+            font-size: 2em;
+        }
+        .box button {
+            width: 100%;
+            padding: 12px;
+            background-color: blueviolet;
+            color: azure;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+        }
+        .box button:hover {
+            background-color: yellow;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header-menu {
+            display: flex;
+            white-space: nowrap;
+            overflow-x: auto;
+            background-color: #222;
+            padding: 10px;
+            width: 100%;
+        }
+        .menu-item {
+            display: inline-block;
+            color: white;
+            margin: 0 10px;
+            font-size: 13px;
+            transition: background-color 0.3s;
+            flex-shrink: 0;
+            background: #333;
+            border-radius: 200px;
+            padding: 8px 12px;
+        }
+        .header-menu::-webkit-scrollbar {
+            display: none;
+        }
+        .menu-item:hover {
+            background-color: #444;
+        }
+        .icon {
+            width: 50px;
+            text-align: start;
+            font-size: 30px;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KARIAKOOSOCIAL</h1>
+        <nav>
+            <a href="login.html">sign in</a>
+            <a href="register.html">sign up</a>
+            <a href="menu.html" class="icon">⚙️</a>
+        </nav>
+    </header>
+
+    <!-- Ujumbe wa kumkaribisha user -->
+    <div id="welcomeMessage"></div>
+
+    <div class="header-menu">
+        <a href="music.mp3"><div class="menu-item">music</div></a>
+        <a href="logo.png"><div class="menu-item">picture</div></a>
+        <a href="video.mp4"><div class="menu-item">video</div></a>
+        <a href="movie.mp4"><div class="menu-item">movie</div></a>
+        <a href="document.docx.docx"><div class="menu-item">document</div></a>
+        <a href="sizon.mp4.mp4"><div class="menu-item">season</div></a>
+    </div>
+
+    <div class="container">
+        <!-- Sections zako -->
+        <section class="box">
+            <h2>caston</h2>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="enter your username" required>
+            <button>check</button>
+        </section>
+
+        <section class="box">
+            <h2>maxter</h2>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="enter your username" required>
+            <button>check</button>
+        </section>
+        <section class="box">
+            <h2>caston</h2>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="enter your username" required>
+            <button>check</button>
+        </section>
+        
+        <section class="box">
+            <h2>caston</h2>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="enter your username" required>
+            <button>check</button>
+        </section>
+        
+        <section class="box">
+            <h2>caston</h2>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="enter your username" required>
+            <button>check</button>
+        </section>
+        
+        <section class="box">
+            <h2>caston</h2>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="enter your username" required>
+            <button>check</button>
+        </section>
+        
+        <section class="box">
+            <h2>caston</h2>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="enter your username" required>
+            <button>check</button>
+        </section>
+        
+        <section class="box">
+            <h2>caston</h2>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="enter your username" required>
+            <button>check</button>
+        </section>
+
+        <!-- Ume-copy mara nyingi, ni sawa kwa test design -->
+    </div>
+
+    <script>
+        // Onyesha jina la user aliyelogin
+        const user = sessionStorage.getItem("currentUser");
+        if (user) {
+            document.getElementById("welcomeMessage").textContent = "Karibu " + user + " 👋";
+        } else {
+            document.getElementById("welcomeMessage").textContent = "Karibu mgeni!";
+        }
+    </script>
+</body>
+</html>
